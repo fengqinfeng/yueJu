@@ -1,3 +1,13 @@
+@media (min-width: 1024px){
+    .quanjing{
+        height: 670px;
+    }
+}
+@media(max-width: 1200px){
+    .quanjing{
+        height: 500px;
+    }
+}
 .index p{
     font-family: SimSun;
     letter-spacing: 10px;
