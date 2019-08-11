@@ -50,5 +50,5 @@ $(document).ready(function(){
 });
 //首页返回顶部
 $('.goTop').on('click',function () {
-    $('html,body').animate({scrollTop:'0px'},1000);
+    $('html,body').animate({scrollTop:'0px'},500);
 })
