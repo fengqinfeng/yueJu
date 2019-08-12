@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
 
 
 </head>
@@ -72,17 +72,17 @@
             <!--点赞收藏分享-->
             <div class="col-12 save">
                 <div style="height: 55px;width: 640px;background: #fff;margin-top: 25px;">
-                    <div style="position: relative;width:100px;">
-                        <a href="" class="text-muted" style="text-decoration: none;">
-                            <img src="assets/image/logo/unlikes.png" alt="" width="28px" height="28px">
+                    <div style="position: relative;width:100px;" class="opera">
+                            <span id="btn1">
+                                <img src="assets/image/logo/unlikes.png" alt="" width="28px" height="28px">
+                                </span>
                             <span style="position: relative;top: 4px;">7.0 <span>万</span></span>
-                        </a>
                     </div>
                     <div style="position: relative;top: -28px;left: 100px;width: 100px;">
-                        <a href="" class="text-muted" style="text-decoration: none;">
-                            <img src="assets/image/logo/collect.png" alt="" width="28px" height="28px">
+                        <span id="btn2">
+                                <img src="assets/image/logo/collect.png" alt="" width="28px" height="28px">
+                                </span>
                             <span style="position: relative;top: 4px;">7.0 <span>万</span></span>
-                        </a>
                     </div>
                     <div style="position: relative;top: -56px;left: 200px;width: 100px;">
                         <a class="share text-muted" href="" style="text-decoration: none;">
@@ -100,8 +100,8 @@
                                     <div class="share-down">
                                         <div class="shareqq" style="float: left;margin-right: 12px;">
                                             <a href="">
-                                        <span style="background: url('assets/image/logo/icons.png');width: 35px;
-                                        height: 35px;display: inline-block;background-position: -975px -910px;">
+                                        <span style="background: url('assets/image/logo/QQ.png');width: 32px;
+                                        height: 32px;display: inline-block;">
 
                                         </span>
                                                 <p style="margin-left: 7px;">QQ</p>
@@ -112,6 +112,42 @@
                                     </div>
 
                                 </div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="share-address">
+                                    <div class="share-down">
+                                        <div class="shareqq" style="float: left;margin-right: 12px;">
+                                            <a href="">
+                                        <span style="background: url('assets/image/logo/微信.png');width: 32px;
+                                        height: 32px;display: inline-block;">
+
+                                        </span>
+                                                <p style="margin-left: 7px;">微信</p>
+                                            </a>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                <div class="share-address">
+                                    <div class="share-down">
+                                        <div class="shareqq" style="float: left;margin-right: 12px;">
+                                            <a href="">
+                                        <span style="background: url('assets/image/logo/微博.png');width: 32px;
+                                        height: 32px;display: inline-block;">
+
+                                        </span>
+                                                <p style="margin-left: 7px;">微博</p>
+                                            </a>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
 
                             </div>
                         </div>
@@ -121,6 +157,8 @@
             </div>
             <hr style="margin-top: -10px;" class="col-11">
             <!--关注-->
+            <h6>著名演员</h6>
+            <br>
             <div class="col-12 container">
                 <div>
                     <div class="people"
@@ -568,9 +606,9 @@
 <script>
 
     $('.shareqq').hover(function () {
-        $('.shareqq span').css("background-position", "-975px -846px");
+        $('.shareqq span').css("background-position", "0 0");
     }, function () {
-        $('.shareqq span').css("background-position", "-975px -910px");
+        $('.shareqq span').css("background-position", "0 0");
     });
     // var player = videojs('my_video_1', {
     //     playbackRates: [0.5, 1, 1.5, 2]
@@ -608,6 +646,73 @@
         autoplay: true,
         controls: true,
         plugin: [aggdPlugin.name]
+    });
+</script>
+<script type="text/javascript">
+    (function ($) {
+        $.extend({
+            tipsBox: function (options) {
+                options = $.extend({
+                    obj: null,  //jq对象，要在那个html标签上显示
+                    str: "+1",  //字符串，要显示的内容;也可以传一段html，如: "<b style='font-family:Microsoft YaHei;'>+1</b>"
+                    startSize: "12px",  //动画开始的文字大小
+                    endSize: "30px",    //动画结束的文字大小
+                    interval: 600,  //动画时间间隔
+                    color: "red",    //文字颜色
+                    callback: function () { }    //回调函数
+                }, options);
+                $("body").append("<span class='num'>" + options.str + "</span>");
+                var box = $(".num");
+                var left = options.obj.offset().left + options.obj.width() / 2;
+                var top = options.obj.offset().top - options.obj.height();
+                box.css({
+                    "position": "absolute",
+                    "left": left + "px",
+                    "top": top + "px",
+                    "z-index": 9999,
+                    "font-size": options.startSize,
+                    "line-height": options.endSize,
+                    "color": options.color
+                });
+                box.animate({
+                    "font-size": options.endSize,
+                    "opacity": "0",
+                    "top": top - parseInt(options.endSize) + "px"
+                }, options.interval, function () {
+                    box.remove();
+                    options.callback();
+                });
+            }
+        });
+    })(jQuery);
+
+    function niceIn(prop){
+        prop.find('i').addClass('niceIn');
+        setTimeout(function(){
+            prop.find('i').removeClass('niceIn');
+        },1000);
+    }
+    $(function () {
+        $("#btn1").click(function () {
+            $.tipsBox({
+                obj: $(this),
+                str: "+1",
+                callback: function () {
+                }
+            });
+            niceIn($(this));
+        });
+    });
+    $(function () {
+        $("#btn2").click(function () {
+            $.tipsBox({
+                obj: $(this),
+                str: "+1",
+                callback: function () {
+                }
+            });
+            niceIn($(this));
+        });
     });
 </script>
 </body>
