@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-
+    <link type="text/css" rel="stylesheet" href="assets/css/demo.css"/>
 
 
 </head>
@@ -70,8 +70,14 @@
                 </div>
             </div>
             <!--点赞收藏分享-->
+<!--            <div class="praise">-->
+<!--                <span id="praise"><img src="assets/image/zan.png" id="praise-img" /></span>-->
+<!--                <span id="praise-txt">1455</span>-->
+<!--                <span id="add-num"><em>+1</em></span>-->
+<!--            </div>-->
             <div class="col-12 save">
                 <div style="height: 55px;width: 640px;background: #fff;margin-top: 25px;">
+
                     <div style="position: relative;width:100px;" class="opera">
                             <span id="btn1">
                                 <img src="assets/image/logo/unlikes.png" alt="" width="28px" height="28px">
@@ -82,7 +88,7 @@
                         <span id="btn2">
                                 <img src="assets/image/logo/collect.png" alt="" width="28px" height="28px">
                                 </span>
-                            <span style="position: relative;top: 4px;">7.0 <span>万</span></span>
+                            <span style="position: relative;top: 4px;">3.8 <span>万</span></span>
                     </div>
                     <div style="position: relative;top: -56px;left: 200px;width: 100px;">
                         <a class="share text-muted" href="" style="text-decoration: none;">
@@ -91,11 +97,12 @@
                         </a>
                     </div>
                     <div style="position: relative;top: -76px;left:508px;color: #999;width: 100px;">
-                        <p><a href="" class="nav-link text-muted"><span>稿件投诉</span></a></p>
+<!--                        <p><a href="" class="nav-link text-muted"><span>稿件投诉</span></a></p>-->
                     </div>
                     <div class="share-box">
                         <div class="share-pos">
                             <div class="box-a">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <div class="share-address">
                                     <div class="share-down">
                                         <div class="shareqq" style="float: left;margin-right: 12px;">
@@ -104,7 +111,6 @@
                                         height: 32px;display: inline-block;">
 
                                         </span>
-                                                <p style="margin-left: 7px;">QQ</p>
                                             </a>
                                         </div>
 
@@ -121,7 +127,6 @@
                                         height: 32px;display: inline-block;">
 
                                         </span>
-                                                <p style="margin-left: 7px;">微信</p>
                                             </a>
                                         </div>
 
@@ -139,7 +144,6 @@
                                         height: 32px;display: inline-block;">
 
                                         </span>
-                                                <p style="margin-left: 7px;">微博</p>
                                             </a>
                                         </div>
 
@@ -714,6 +718,31 @@
             niceIn($(this));
         });
     });
+</script>
+<script>
+    $(function(){
+        $("#praise").click(function(){
+            var praise_img = $("#praise-img");
+            var text_box = $("#add-num");
+            var praise_txt = $("#praise-txt");
+            var num=parseInt(praise_txt.text());
+            if(praise_img.attr("src") == ("assets/image/yizan.png")){
+                $(this).html("<img src='assets/image/zan.png' id='praise-img' class='animation' />");
+                praise_txt.removeClass("hover");
+                text_box.show().html("<em class='add-animation'>-1</em>");
+                $(".add-animation").removeClass("hover");
+                num -=1;
+                praise_txt.text(num)
+            }else{
+                $(this).html("<img src='assets/image/yizan.png' id='praise-img' class='animation' />");
+                praise_txt.addClass("hover");
+                text_box.show().html("<em class='add-animation'>+1</em>");
+                $(".add-animation").addClass("hover");
+                num +=1;
+                praise_txt.text(num)
+            }
+        });
+    })
 </script>
 </body>
 </html>
